@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/df-mc/atomic"
-	"github.com/sandertv/go-raknet/internal/message"
+	"github.com/sikang99/go-raknet/internal/message"
 	"log"
 	"math"
 	"math/rand"

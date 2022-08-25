@@ -585,9 +585,9 @@ func (conn *Conn) handleConnectedPong(b *bytes.Buffer) error {
 	if err := packet.Read(b); err != nil {
 		return fmt.Errorf("error reading connected pong: %v", err)
 	}
-	//if packet.ClientTimestamp > timestamp() {
-		//return fmt.Errorf("error measuring rtt: ping timestamp is in the future")
-	//}
+	if packet.ClientTimestamp > timestamp() {
+		return fmt.Errorf("error measuring rtt: ping timestamp is in the future")
+	}
 	// We don't actually use the ConnectedPong to measure rtt. It is too unreliable and doesn't give a
 	// good idea of the connection quality.
 	return nil
